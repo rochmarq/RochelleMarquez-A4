@@ -102,7 +102,10 @@ async function getCurrentAstro(apiUrl, formDateRaw) {
     const moonRise = result.astronomy.astro.moonrise;
     console.log('Moonrise:', moonRise);
 
-    const readableDate = new Date(formDateRaw).toLocaleDateString('en-US', {
+    const moonSet = result.astronomy.astro.moonset;
+    console.log('Moonrise:', moonSet);
+
+    const readableDate = new Date(formDateRaw  + 'T00:00:00').toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
         day: 'numeric'
@@ -118,7 +121,7 @@ async function getCurrentAstro(apiUrl, formDateRaw) {
                 <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title">In ${nameCity}, ${nameCountry} on ${readableDate}...</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text">The moon rose at ${moonRise} and set at ${moonSet}. On that day, the moon was in the ${moonPhase} phase.</p>
                 </div>
                 </div>
             </div>
