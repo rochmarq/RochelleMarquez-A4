@@ -122,12 +122,14 @@ async function getCurrentAstro(apiUrl, formDateRaw) {
         day: 'numeric'
     });
 
+    const moonImageUrl = moonPhaseImages[moonPhase];
+
     const placeHolder = document.querySelector("#astro-info");
     placeHolder.innerHTML = `
         <div class="card mt-4 m-auto p-2">
             <div class="row g-0">
                 <div class="col-md-4">
-                <img src="..." class="img-fluid rounded-start" alt="${moonPhase}">
+                <img src="${moonImageUrl}" class="img-fluid rounded-start" alt="${moonPhase}">
                 </div>
                 <div class="col-md-8">
                 <div class="card-body">
