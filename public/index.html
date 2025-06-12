@@ -17,13 +17,17 @@
         <div class="card mt-4 m-auto p-2">
             <div class="card-body">
                 <form id="inputForm">
-                    <h5 class="card-title">Test</h5>
+                    <h5 class="card-title">Moon Finder</h5>
+                    <p>Select a location and date to see when the moon rose, set, and what phase it was in!</p>
+                    <hr class="my-4">
                     <div class="mb-3">
+                        <!-- location input -->
                         <label class="form-label">Location</label>
                         <input type="text" id="formLocal" class="form-control">
                         <div class="form-text">Type in a city name, postal code, or coordinates to get your information.</div>
                     </div>
                     <div>
+                        <!-- date input dropdown selection -->
                         <label class="form-label">Date</label>
                         <input type="date" id="formDate" class="form-control">
                         <div class="form-text">Select the date you would like to see.</div>
@@ -33,21 +37,8 @@
             </div>
         </div>
 
-        <div class="m-auto" id="astro-info">
-            <!-- <div class="card mt-4 m-auto p-2">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                    <img src="..." class="img-fluid rounded-start" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-            </div> -->
-        </div>
-
+        <!-- display information using js -->
+        <div class="m-auto" id="astro-info"></div>
 
         <script src="/js/main.js"></script>
     </body>
