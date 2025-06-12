@@ -74,6 +74,17 @@ console.log("hello world");
 //     console.log('moon phase: ', moonRise);
 // };
 
+const moonPhaseImages = {
+    "New Moon": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004874/phase_new.1026_print.jpg",
+    "Waxing Crescent": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004874/phase_waxing_crescent.0398_print.jpg",
+    "First Quarter": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004874/phase_first_quarter.5440_print.jpg",
+    "Waxing Gibbous": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004874/phase_waxing_gibbous.4801_print.jpg",
+    "Full Moon": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004874/phase_full.3492_print.jpg",
+    "Waning Gibbous": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004874/phase_waning_gibbous.2172_print.jpg",
+    "Third Quarter": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004874/phase_third_quarter.2243_print.jpg",
+    "Waning Crescent": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004874/phase_waning_crescent.0903_print.jpg"
+};
+
 document.getElementById("submit").onclick = function(e) {
     e.preventDefault();
 
@@ -116,7 +127,7 @@ async function getCurrentAstro(apiUrl, formDateRaw) {
         <div class="card mt-4 m-auto p-2">
             <div class="row g-0">
                 <div class="col-md-4">
-                <img src="..." class="img-fluid rounded-start" alt="...">
+                <img src="..." class="img-fluid rounded-start" alt="${moonPhase}">
                 </div>
                 <div class="col-md-8">
                 <div class="card-body">
