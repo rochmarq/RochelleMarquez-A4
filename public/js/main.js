@@ -79,31 +79,51 @@ document.getElementById("submit").onclick = function(e) {
 
     const formLocation = document.getElementById("formLocal").value;
     const formDate = document.getElementById("formDate").value;
+    console.log(formDate)
 
     const apiUrlAstro = `https://api.weatherapi.com/v1/astronomy.json?q=${formLocation}&dt=${formDate}&key=0e18b1e66e6d418e91e220356253005`;
 
-    getCurrentAstro(apiUrlAstro);
+    getCurrentAstro(apiUrlAstro, formDate);
 };
 
-async function getCurrentAstro(apiUrl) {
-    try {
-        const apiRes = await fetch(apiUrl);
-        const result = await apiRes.json();
+async function getCurrentAstro(apiUrl, formDateRaw) {
+    const apiRes = await fetch(apiUrl);
+    const result = await apiRes.json();
 
-        const moonPhase = result.astronomy.astro.moon_phase;
-        console.log('Moon phase:', moonPhase);
+    const moonPhase = result.astronomy.astro.moon_phase;
+    console.log('Moon phase:', moonPhase);
 
-        const nameCity = result.location.name;
-        console.log('City:', nameCity);
+    const nameCity = result.location.name;
+    console.log('City:', nameCity);
 
-        const nameCountry = result.location.country;
-        console.log('Country:', nameCountry);
+    const nameCountry = result.location.country;
+    console.log('Country:', nameCountry);
 
-        const moonRise = result.astronomy.astro.moonrise;
-        console.log('Moonrise:', moonRise);
-    } catch (err) {
-        console.error('Error fetching astro data:', err);
-    }
+    const moonRise = result.astronomy.astro.moonrise;
+    console.log('Moonrise:', moonRise);
+
+    const readableDate = new Date(formDateRaw).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+
+    const placeHolder = document.querySelector("#astro-info");
+    placeHolder.innerHTML = `
+        <div class="card mt-4 m-auto p-2">
+            <div class="row g-0">
+                <div class="col-md-4">
+                <img src="..." class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">In ${nameCity}, ${nameCountry} on ${readableDate}...</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+                </div>
+            </div>
+        </div>
+    `
 }
 
 
